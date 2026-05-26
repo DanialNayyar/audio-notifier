@@ -1,0 +1,28 @@
+Allowed events:
+ - Success
+ - Error
+ - High Score
+ - Low Score
+ - Score equal to threshold 
+ - Training Complete
+
+Sound Configuration:
+- Frequency: number
+- Duration: number
+- Waveform/wavetype: string
+- Duration: number
+
+Event Selection:
+- 
+
+Waveform Generator:
+- if/elif/else statements that choose type of waveform (configuration and sample rate are input parameters)
+- Options:
+    - Sine
+    - Square
+    - Triangle
+    - Sawtooth
+    - Custom ?
+      - R2D2
+      - Noises from R6
+      - Anime: AoT (Transformation), Naruto (shadow clone jutsu)
