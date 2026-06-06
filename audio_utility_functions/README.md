@@ -67,7 +67,7 @@ wave = notification(
 display(Audio(wave, rate=sample_rate, autoplay=True))
 ```
 
-Available options event options include:
+Available event options include:
 - success
 - error
 - low_score
