@@ -1,17 +1,15 @@
-# for success, training complete, error, etc
-
-
+from waveform_generation import sine_wave, sawtooth_wave, triangle_wave, square_wave, generator
+from sound_configuration import configuration
 from events import sound_events
-from event_selector import selected_event
-
-def notificaiton (event, sample_rate):
-    configuration = sound_config(event)
-    waveform = generate_waveform(configuration, sample_rate = sample_rate)
-    play_sound(waveform)
+from sound_presets import get_sound_config
 
 
 
-notificaiton(sound_events["success"])
-notificaiton(sound_events["error"])
-notificaiton(sound_events["training_complete"])
+def notification (event, sample_rate):
+    event = event
+    sample_rate = sample_rate
 
+    config = get_sound_config(event=event)
+    wave = generator(config=config, sample_rate=sample_rate)
+
+    return wave
