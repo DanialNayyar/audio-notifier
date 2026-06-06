@@ -1,6 +1,6 @@
-from sound_presets import get_sound_config
-from events import sound_events
-from sound_configuration import allowed_waveforms
+from audio_notifier.sound_presets import get_sound_config
+from audio_notifier.events import sound_events
+from audio_notifier.sound_configuration import allowed_waveforms
 import pytest 
 
 

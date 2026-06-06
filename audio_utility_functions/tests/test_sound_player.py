@@ -1,5 +1,5 @@
 import numpy as np
-from sound_player import to_wav
+from audio_notifier.sound_player import to_wav
 import pytest
 
 def test_save_to_wv(tmp_path):

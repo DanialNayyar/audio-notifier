@@ -1,4 +1,4 @@
-from sound_configuration import configuration
+from audio_notifier.sound_configuration import configuration
 import pytest
 
 def test_sound_config_is_created(): #passed

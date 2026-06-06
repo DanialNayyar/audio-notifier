@@ -1,5 +1,5 @@
-from waveform_generation import sine_wave, sawtooth_wave, triangle_wave, square_wave, generator
-from sound_configuration import configuration
+from audio_notifier.waveform_generation import sine_wave, sawtooth_wave, triangle_wave, square_wave, generator
+from audio_notifier.sound_configuration import configuration
 import pytest
 import numpy as np
 

@@ -1,6 +1,6 @@
-from general_notifier import notification
-from events import sound_events
-from sound_presets import get_sound_config
+from audio_notifier.general_notifier import notification
+from audio_notifier.events import sound_events
+from audio_notifier.sound_presets import get_sound_config
 
 def test_notifier_returns_wave():
     event = sound_events["success"]
