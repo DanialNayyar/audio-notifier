@@ -40,3 +40,36 @@ It helped practice:
 ## Future Work
 
 - Developed a lightweightr Google Colab version that can be imported into a notebook and be used to play sounds.
+
+## Colab Setup
+
+Run this cell at the top of a Colab notebook:
+
+```python
+!pip install -q "git+https://github.com/DanialNayyar/audio-notifier.git#subdirectory=audio_utility_functions"
+
+```
+
+In the Cell below paste this:
+
+```
+from audio_notifier.events import sound_events
+from audio_notifier.general_notifier import notification
+from IPython.display import Audio, display
+
+sample_rate = 10_000
+
+wave = notification(
+    event=sound_events["success"],
+    sample_rate=sample_rate
+)
+
+display(Audio(wave, rate=sample_rate, autoplay=True))
+```
+
+Available event options include:
+- success
+- error
+- low_score
+- high_score
+- training_complete 
