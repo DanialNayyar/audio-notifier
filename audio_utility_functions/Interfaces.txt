@@ -1,28 +1,117 @@
-Allowed events:
- - Success
- - Error
- - High Score
- - Low Score
- - Score equal to threshold 
- - Training Complete
+events.py:
+  Defines allowed events
+  - Success
+  - Error
+  - High Score
+  - Low Score
+  - Training Complete
 
-Sound Configuration:
-- Frequency: number
-- Duration: number
-- Waveform/wavetype: string
-- Duration: number
 
-Event Selection:
-- 
 
-Waveform Generator:
-- if/elif/else statements that choose type of waveform (configuration and sample rate are input parameters)
-- Options:
-    - Sine
-    - Square
-    - Triangle
-    - Sawtooth
-    - Custom ?
-      - R2D2
-      - Noises from R6
-      - Anime: AoT (Transformation), Naruto (shadow clone jutsu)
+
+
+sound_config.py
+- Defines SoundConfig
+- Validates frequency, duration, waveform, volume
+
+  Validation rules:
+  - frequency > 0
+  - duration > 0
+  - waveform = one of allowed waveforms
+  - 0 < volume <=1
+
+
+
+event_selector.py
+ - choose_score_event (score_achieved, threshold)
+
+
+sound_presets.py
+  - get_sound_config(event)
+
+
+
+waveform_generator.py:
+  -generate_waveform(sound_config, sample_rate)
+
+  - Options:
+      - Sine
+      - Square
+      - Triangle
+      - Sawtooth
+      - Custom:
+
+
+sound_player.py:
+- play_sound()
+
+Tests:
+  - test_selector.py:
+    - score >= threshold = high score
+    - score == threshold = high score
+    - score < threshold = low score
+
+    Example:
+
+      input metric = 0.85
+      threshold = 0.90
+      when event_chooser() is called:
+        return Low Score
+
+
+  - test_sound_config.py (all should raise appropriate error):
+    - frequncy input = -ve
+    - frequncy input = 0
+    - duration input = 0
+    - duration input = -ve
+    - waveform input = invalid
+    - volume input = 0
+    - volume input = -ve
+    - volume > 1
+    - valid config is created 0< volume <=1
+
+
+  - test_sound_presets.py:
+    - event = success, returns valid configuration
+    - event = error, returns valid configuration
+    - event = high score, returns valid configuration
+    - event = low score, returns valid configuration
+    - event = training complete, returns valid configuration
+    - event = unknown, raises error
+
+
+    Example:
+      event = Success
+      when sound() is called then config should have;
+        frequency > 0
+        duration > 0
+        waveform = valid
+        0 < volume <= 1
+
+
+  - test_waveforms.py:
+    - test_sine_wave_returns_expected_number_of_samples
+    - test_square_wave_returns_expected_number_of_samples
+    - test_waveform_contains_no_nan_values
+    - test_waveform_values_stay_within_volume_range
+    - test_invalid_sample_rate_raises_error
+    - test_triangle_wave_returns_expected_number_of_samples
+    - test_sawtooth_wave_returns_expected_number_of_samples
+
+
+
+
+
+
+
+
+
+
+CODE/ LOGIC FLOW:
+
+
+1) Input: score_achieved + threshold
+2) event_selector.py -> chooses event (from events.py)
+3) sound_presets.py chooses SoundConfig
+4) waveform_generator.py() generates the waveform
+5) sound_player.py() plays the sound
