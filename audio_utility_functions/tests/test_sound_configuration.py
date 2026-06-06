@@ -1,7 +1,7 @@
 from sound_configuration import configuration
 import pytest
 
-def test_sound_config_is_created():
+def test_sound_config_is_created(): #passed
     #arrange
 
     frequency = 400
@@ -24,7 +24,7 @@ def test_sound_config_is_created():
 
 
 
-def test_negative_frequency_error():
+def test_negative_frequency_error(): #passed
 
     with pytest.raises(ValueError):
 
@@ -35,7 +35,7 @@ def test_negative_frequency_error():
 
 
 
-def test_zero_frequency_error():
+def test_zero_frequency_error(): #passed
 
     with pytest.raises(ValueError):
 
@@ -49,7 +49,7 @@ def test_zero_frequency_error():
 
 
 
-def test_zero_duration_error():
+def test_zero_duration_error(): #passed
     
     with pytest.raises(ValueError):
 
@@ -61,7 +61,7 @@ def test_zero_duration_error():
 
 
 
-def test_negative_duration_error():
+def test_negative_duration_error(): #passed
 
     with pytest.raises(ValueError):
 
@@ -76,7 +76,7 @@ def test_negative_duration_error():
 
 
 
-def test_invalid_waveform_selected():
+def test_invalid_waveform_selected(): #passed
 
     with pytest.raises(ValueError):
 
@@ -90,7 +90,7 @@ def test_invalid_waveform_selected():
 
 
 
-def test_zero_volume_error():
+def test_zero_volume_error(): #passed
 
     with pytest.raises(ValueError):
 
@@ -102,7 +102,7 @@ def test_zero_volume_error():
 
 
 
-def test_negative_volume_error():
+def test_negative_volume_error(): # passed
 
     with pytest.raises(ValueError):
 
@@ -115,7 +115,7 @@ def test_negative_volume_error():
 
 
 
-def test_volume_above_one_error():
+def test_volume_above_one_error(): # passed
 
     with pytest.raises(ValueError):
 
