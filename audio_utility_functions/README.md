@@ -40,3 +40,10 @@ It helped practice:
 ## Future Work
 
 - Developed a lightweightr Google Colab version that can be imported into a notebook and be used to play sounds.
+
+## Colab Setup
+
+Run this cell at the top of a Colab notebook:
+
+```python
+!pip install -q "git+https://github.com/DanialNayyar/audio-notifier.git#subdirectory=audio_utility_functions"
